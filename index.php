@@ -53,26 +53,26 @@
 				<input type="file" name="fileToUpload" id="fileToUpload" required>
 				<input type="submit" value="Upload Image" name="submit">
 					<div class="filters">
-						<input type="radio" name="filter" value="blanka" id="blanka" checked/>
-						<label><img src="./ressources/filters/blanka.png" alt="missing" class="filtersize" /></label>
-						<input type="radio" name="filter" value="gouki" id="gouki"/>
-						<label><img src="./ressources/filters/gouki.png" alt="missing" class="filtersize" /></label>
+						<input type="radio" name="filter" value="one" id="one" checked/>
+						<label><img src="./ressources/filters/one.png" alt="missing" class="filtersize" /></label>
+						<input type="radio" name="filter" value="two" id="two"/>
+						<label><img src="./ressources/filters/two.png" alt="missing" class="filtersize" /></label>
 						<br>
-						<input type="radio" name="filter" value="phoenix" id="phoenix"/>
-						<label><img src="./ressources/filters/phoenix.png" alt="missing" class="filtersize" /></label>
-						<input type="radio" name="filter" value="marine" id="marine"/>
-                        <label><img src="./ressources/filters/marine.png" alt="missing" class="filtersize" /></label>
+						<input type="radio" name="filter" value="three" id="three"/>
+						<label><img src="./ressources/filters/three.png" alt="missing" class="filtersize" /></label>
+						<input type="radio" name="filter" value="four" id="four"/>
+                        <label><img src="./ressources/filters/four.png" alt="missing" class="filtersize" /></label>
                         <br>
                         <br>
-                        <input type="radio" name="filter" value="fire" id="fire" checked/>
-						<label><img src="./ressources/filters/fire.png" alt="missing" class="filtersize" /></label>
-						<input type="radio" name="filter" value="street" id="street"/>
-						<label><img src="./ressources/filters/street.png" alt="missing" class="filtersize" /></label>
+                        <input type="radio" name="filter" value="five" id="five" checked/>
+						<label><img src="./ressources/filters/five.png" alt="missing" class="filtersize" /></label>
+						<input type="radio" name="filter" value="six" id="six"/>
+						<label><img src="./ressources/filters/six.png" alt="missing" class="filtersize" /></label>
 						<br>
-						<input type="radio" name="filter" value="zang" id="zang"/>
-						<label><img src="./ressources/filters/zang.png" alt="missing" class="filtersize" /></label>
-						<input type="radio" name="filter" value="zangief" id="zangief"/>
-                        <label><img src="./ressources/filters/zangief.png" alt="missing" class="filtersize" /></label>
+						<input type="radio" name="filter" value="seven" id="seven"/>
+						<label><img src="./ressources/filters/seven.png" alt="missing" class="filtersize" /></label>
+						<input type="radio" name="filter" value="eight" id="eight"/>
+                        <label><img src="./ressources/filters/eight.png" alt="missing" class="filtersize" /></label>
                         <div class="choose_filter"><br>
                             <h2>CHOOSE YOUR FILTER</h2>
                         </div>

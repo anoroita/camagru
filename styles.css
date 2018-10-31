@@ -1,6 +1,6 @@
 body
 {
-    background-image: url("ressources/light.gif");
+    background-image: url("ressources/background.png");
     background-size: 100%;
     margin: (0, 0, 0);
 }
@@ -9,11 +9,12 @@ body
 	display : flex;
 	justify-content: flex-end;
 	flex-direction: row;
-	background-color: rgb(0, 0, 0);
+	background-color: rgb(29, 5, 59);
 	height: 5vw;
 	max-height: 3.5cm;
 	width: 100%;
 }
+
 
 .choose_filter
 {
@@ -74,8 +75,8 @@ body
 {
     font-family: monospace;
     text-decoration-style: wavy;
-    color: yellow; 
-	background-color: rgb(0, 0, 0);
+    color: rgb(248, 248, 248); 
+	background-color: rgb(29, 5, 59);
 	border: black;
     margin: auto;
 	margin-left: -43.5vw;
@@ -122,13 +123,14 @@ body
 
 .login_
 {
-	color: #ccc;
+	color: white;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .reg_
 {
-	color: #ccc;
-	border: black;
+	color: white;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .icon
@@ -140,7 +142,7 @@ body
 	font-size: 2vw;
 	font-family: arial;
 	color: white;
-	background-color: rgb(212, 199, 8);
+	background-color: rgb(255, 255, 255);
 	border: none;
 }
 
@@ -280,8 +282,8 @@ input[type=text], input[type=password], input[type=email] {
 
 .gallery
 {
-	border-radius: 1vw;
-	padding: 0.2vw;
+	padding: 4vw;
+	border-bottom-color: darkgray;
 	width: 11vw;
 	height: 10vw;
 	transition: .3s ease;
@@ -368,7 +370,7 @@ input[type=text], input[type=password], input[type=email] {
 
 .galleryview
 {
-    background-color: bisque;
+    background-color: white;
     display: inline-block;
 	height: 85%;
 }
