@@ -25,7 +25,7 @@ if ($_SESSION['LOGGED_ON'] && $_GET)
 	}
 	try
 	{
-		$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+		$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$req = $conn->prepare('INSERT INTO Photos (username, timet, url, UserID) VALUES (:username, NOW() , :url, :userID)');
 		$req->execute(array(

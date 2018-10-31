@@ -15,7 +15,7 @@ if ($_SESSION['ID'] === $pic[0])
 
 	try
 	{
-		$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+		$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$req = $connection->prepare('DELETE FROM photos WHERE url = :url');
 		$req->execute(array(

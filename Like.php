@@ -10,7 +10,7 @@ $_SESSION["message"] = '';
         $id = $_SESSION['ID'];
         $picname = htmlspecialchars($_GET['pic']);
         try{
-            $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+            $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $req = $conn->prepare("SELECT PhotoID FROM photos where url = :url");
             $req->execute(array(
@@ -24,7 +24,7 @@ $_SESSION["message"] = '';
         }
         try
         {
-            $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+            $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $req = $conn->prepare("SELECT LikeID FROM likes WHERE Userid = :UserID AND photoID = :photoID");
             $req->execute(array(
@@ -40,7 +40,7 @@ $_SESSION["message"] = '';
         {
             try
             {
-                $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+                $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $req = $conn->prepare("DELETE FROM likes WHERE UserID = :UserID AND photoID = :photoID");
                 $req->execute(array(
@@ -58,7 +58,7 @@ $_SESSION["message"] = '';
         {
             try
             {
-                $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+                $conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $req = $conn->prepare("INSERT INTO likes (UserID, photoID) VALUES (:UserID, :photoID)");
                 $req->execute(array(

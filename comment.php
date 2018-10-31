@@ -36,7 +36,7 @@
 			if ($_SESSION['LOGGED_ON'])
 			{
 				try{
-					$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+					$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 					$req = $conn->prepare("SELECT PhotoID FROM photos where url = :url");
 					$req->execute(array(
@@ -49,7 +49,7 @@
 					echo "Couldn't write in Database: " . $e->getMessage();
 				}
 				try{
-					$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+					$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 					$req = $conn->prepare("SELECT text, author FROM comments where photoID = :photoid");
 					$req->execute(array(

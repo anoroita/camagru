@@ -4,7 +4,7 @@
 		header('location:index.php');
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$update = $conn->prepare("SELECT * FROM users WHERE username = :username");
 			$update->execute(array(
@@ -18,7 +18,7 @@
 		{
 			try
 			{
-				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$update = $conn->prepare("UPDATE Photos SET username = :newusername WHERE username = :username");
 				$update->execute(array(

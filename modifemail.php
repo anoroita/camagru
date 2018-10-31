@@ -5,7 +5,7 @@
 		header('location:index.php');
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "fortunate92", "fortunate92");
+			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$update = $conn->prepare("SELECT * FROM users WHERE email = :newmail");
 			$update->bindParam(':newmail', $_POST['newmail']);
@@ -19,7 +19,7 @@
 		{
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$update = $conn->prepare("UPDATE users SET email = :newmail WHERE username = :username");
 			$update->execute(array(

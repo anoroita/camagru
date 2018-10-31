@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	try
 	{
         $email = $_POST["email"];
-		$con = new PDO("mysql:host=localhost;dbname=db_camagru", "fortunate92", "fortunate92");
+		$con = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$req = $con->prepare("SELECT username FROM users WHERE email = :email");
         $req->execute(array(':email' => $email));

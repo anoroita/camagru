@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	try
 	{
 		$password = hash("sha512", $_POST['password']);
-		$con = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+		$con = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$req = $con->prepare("SELECT username FROM users WHERE username = :username AND password = :password AND activated = '1'");
 		$req->execute(array(
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			$_SESSION['LOGGED_ON'] = $_POST['username'];
 			try
 			{
-				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$req = $conn->prepare("SELECT id FROM users where username = :username");
 				$req->execute(array(
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			$_SESSION['ID'] = $id;
 			try
 			{
-				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "fortunate92");
+				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$req = $conn->prepare("SELECT emailcomment FROM users where id = :id");
 				$req->execute(array(
