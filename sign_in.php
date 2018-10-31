@@ -109,10 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			<div style = "padding:14%">
 				<div class="log_error"><?= $_SESSION['login_err'] ?></div>
 				<div class="log_succes"><?= $_SESSION['login_success'] ?></div>
-				<label><b>Username</b></label>
+				<label class=login_><b>Username</b></label>
 				<input type="text" placeholder="Enter user name" name="username" required>
 
-				<label><b>Password</b></label>
+				<label class="login_"><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>
 
 				<div class="clearfix" style="text-align: center;">

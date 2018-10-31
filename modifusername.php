@@ -32,7 +32,7 @@
 			}
 			try
 			{
-				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "root");
+				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$update = $conn->prepare("UPDATE users SET username = :newusername WHERE username = :username");
 				$update->execute(array(

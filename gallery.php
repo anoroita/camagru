@@ -40,7 +40,7 @@ $_SESSION['message'] = '';
 
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "root");
+			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 			$req = $conn->prepare('SELECT COUNT(PhotoID) FROM Photos');
 			$req->execute();
 			$total = $req->fetchColumn();
@@ -54,7 +54,7 @@ $_SESSION['message'] = '';
 		{
 			// requete pour recupere les photos par utilisateur
 			// $req = $conn->prepare('SELECT url FROM Photos WHERE username = :username ORDER BY timet');
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "root");
+			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 			$req = $conn->prepare('SELECT url, PhotoID FROM Photos ORDER BY timet DESC LIMIT ' . (($page - 1)) * $items .' , ' . $items . '');
 			$req->execute();
 			$result = $req->fetchAll();
@@ -80,7 +80,7 @@ $_SESSION['message'] = '';
 					echo "<div class='likencomment'>";
 					try
 					{
-						$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "root");
+						$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 						$req = $conn->prepare("SELECT LikeID FROM likes WHERE photoID = :photoID");
 						$req->execute(array(

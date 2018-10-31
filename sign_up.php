@@ -141,16 +141,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <form class="modal-content" action="sign_up.php" method="post">
             <div class="container">
                 <div class="log_error"><?= $_SESSION["message"] ?></div>
-                <label><b>Users</b></label>
+                <label class=reg_><b>Username</b></label>
                 <input type="text" placeholder="Enter user name" name="username" required>
 
-                <label><b>Email</b></label>
+                <label class=reg_><b>Email</b></label>
                 <input type="email" placeholder="Enter email address" name="email" required>
 
-                <label><b>Password</b></label>
+                <label class=reg_><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="password" required>
 
-                <label><b>Repeat Password</b></label>
+                <label class=reg_><b>Repeat Password</b></label>
                 <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
                 <div class="clearfix" style="text-align: center;">
                     <button type="submit" class="signup" name="clickme" style= "margin-left: 2%;margin-top:2%;";>Sign Up</button>

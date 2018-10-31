@@ -120,6 +120,17 @@ body
 	background-color: rgb(39, 209, 53);
 }
 
+.login_
+{
+	color: #ccc;
+}
+
+.reg_
+{
+	color: #ccc;
+	border: black;
+}
+
 .icon
 {
 	display: inline-block;
