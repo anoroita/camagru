@@ -63,19 +63,6 @@
 						<input type="radio" name="filter" value="four" id="four"/>
                         <label><img src="./ressources/filters/four.png" alt="missing" class="filtersize" /></label>
                         <br>
-                        <br>
-                        <input type="radio" name="filter" value="five" id="five" checked/>
-						<label><img src="./ressources/filters/five.png" alt="missing" class="filtersize" /></label>
-						<input type="radio" name="filter" value="six" id="six"/>
-						<label><img src="./ressources/filters/six.png" alt="missing" class="filtersize" /></label>
-						<br>
-						<input type="radio" name="filter" value="seven" id="seven"/>
-						<label><img src="./ressources/filters/seven.png" alt="missing" class="filtersize" /></label>
-						<input type="radio" name="filter" value="eight" id="eight"/>
-                        <label><img src="./ressources/filters/eight.png" alt="missing" class="filtersize" /></label>
-                        <div class="choose_filter"><br>
-                            <h2>CHOOSE YOUR FILTER</h2>
-                        </div>
 					</div>
 					</form>
 					<video id="video"></video>

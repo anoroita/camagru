@@ -44,7 +44,7 @@
  <html>
  	<head>
  		<meta charset="utf-8">
- 		<link rel="icon" type="image/png" href="./ressources/icons/favicon.png" />
+ 		<link rel="icon" type="image/png" href="./ressources/icons/favicon.ico" />
  		<title></title>
  	</head>
  	<body>
