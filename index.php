@@ -6,13 +6,15 @@
 	<head>
 		<link rel="stylesheet" href="styles.css">
 		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="./ressources/icons/favicon.png" />
-		<title></title>
+		<link rel="icon" type="image/png" src="./ressources/icons/favicon.png" />
+		<title>Home</title>
 	</head>
 	<body>
 		<div class="header">
 			<a href="index.php" style=""><button class="title" name="button">CAMAGRU</button><a/>
 			<?php
+
+			//This will check if user is logged on and display relevant home page icons. (depends)
 			if (isset($_SESSION['LOGGED_ON']))
 			{
 				echo '<a href="user.php"><button class="icon" type="button" name="Login"><img src="./ressources/icons/settings.png" style="width:4.5vw;height:4vw;"</img></button></a>';
@@ -28,6 +30,8 @@
 			?>
 		</div>
 		<?php
+
+		//This will fetch logged in user's photos from database and store them in an assosiative array "result".
 		if (isset($_SESSION['LOGGED_ON']))
 		{
 			try
@@ -45,6 +49,9 @@
 				echo "Couldn't load photos : " . $e->getMessage();
 			}
 
+			/* Here, the "Choose file" and "Upload photo" button will be set and displayed, all the Filter images will be loaded 
+			from ressources/filters/ and be displayed and selected using radio type selector. And set the video, canvas
+			and capture button ready */
 			echo '
 			<div id="global">
 				<div id="gauche">
@@ -61,26 +68,28 @@
 						<input type="radio" name="filter" value="three" id="three"/>
 						<label><img src="./ressources/filters/three.png" alt="missing" class="filtersize" /></label>
 						<input type="radio" name="filter" value="four" id="four"/>
-                        <label><img src="./ressources/filters/four.png" alt="missing" class="filtersize" /></label>
-                        <br>
+            <label><img src="./ressources/filters/four.png" alt="missing" class="filtersize" /></label>
+            <br>
 					</div>
-					</form>
-					<video id="video"></video>
-					<button type="submit" class="cambutton" id="startbutton"><img src="./ressources/icons/photo-camera.png" style="width:4vw;height=4vw;"/></button>
-					<img id="photo" />
-					<canvas id="canvas" style="display:none;"></canvas>
+				</form>
+				<video id="video"></video>
+				<button type="submit" class="cambutton" id="startbutton"><img src="./ressources/icons/photo-camera.png" style="width:4vw;height=4vw;"/></button>
+				<img id="photo" />
+				<canvas id="canvas" style="display:none;">No video stream...</canvas>
 				</div>
 				<div id="droite">';
-					foreach ($result as $value)
-					{
-							echo "<div class='del'>
+
+				//Here all the captured pics will be displayed in gallery, displayed with delete button.
+				foreach ($result as $value)
+				{
+					echo "<div class='del'>
 									<img class='gallery' src='./pics/" . $value['url'] . "'/>
-									<div class='delbutton'><a href='delpicture.php?pic=" . $value['url'] . "'><img src='./ressources/icons/delwhite.png' style='width:4vw;height=4vw;'/></a>
+									<div class='delbutton'><a href='delpicture.php?pic=" . $value['url'] . "'><img src='./ressources/icons/delwhite.png' style='width:3vw;height=3vw;'/></a>
 									</div>
 								</div>";
-					}
-				 echo '</div>
-			</div>';
+				}
+				echo '</div>
+				</div>';
 		}
 		?>
 		<div class="footer">
@@ -89,10 +98,17 @@
 </html>
 
 <?php
+
+/* The JS script below will make video streaming for capturing of the gallery images possible*/ 
+
 if (isset($_SESSION['LOGGED_ON']))
 {
 ?>
 <script>
+
+/* Settting all the DOM elements and using, width and height 
+and also getMedia functions to activate Webcam */
+
 (function() {
 		var streaming = false,
 		video = document.querySelector('#video'),
@@ -126,9 +142,11 @@ if (isset($_SESSION['LOGGED_ON']))
       video.play();
     },
     function(err) {
-      console.log("An error occured! " + err);
+    console.log("An error occured! " + err);
     }
   );
+
+	//Listen for canplay event and sets size of the stream.
 
   video.addEventListener('canplay', function(ev){
     if (!streaming) {
@@ -140,6 +158,9 @@ if (isset($_SESSION['LOGGED_ON']))
       streaming = true;
     }
   }, false);
+
+	/* Captures the actual video instance from canvas, sets datastorage and appends 
+	image to html div class with delete button on top. */
 
 	function takepicture()
 	{
@@ -165,9 +186,12 @@ if (isset($_SESSION['LOGGED_ON']))
 			document.getElementById('droite').append(div);
 		}
    }
+	
+	//Captures the final image.
+
   startbutton.addEventListener('click', function(ev)
   {
-	takepicture();
+		takepicture();
   }, false);
 })();
 </script>

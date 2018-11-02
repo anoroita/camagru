@@ -97,7 +97,7 @@
             <form class="modal-content" action="verifypsw.php?email='.$email.'&conflink='.$conflink.'" method="post">
                <div class="container">
 
-                    <input type="password" placeholder="Enter Password" name="password" required>
+                	<input type="password" placeholder="Enter Password" name="password" required>
                    <label><b>Repeat new password</b></label>
                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
                    <button type="submit" class="signup" name="clickme" style= "margin-left: 2%;margin-top: 2%";>Confirm</button>

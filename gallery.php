@@ -52,8 +52,6 @@ $_SESSION['message'] = '';
 
 		try
 		{
-			// requete pour recupere les photos par utilisateur
-			// $req = $conn->prepare('SELECT url FROM Photos WHERE username = :username ORDER BY timet');
 			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
 			$req = $conn->prepare('SELECT url, PhotoID FROM Photos ORDER BY timet DESC LIMIT ' . (($page - 1)) * $items .' , ' . $items . '');
 			$req->execute();

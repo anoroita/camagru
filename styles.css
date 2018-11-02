@@ -1,9 +1,7 @@
 body
 {
-	/*background-image: url("ressources/two.png");*/
+	background-image: url("ressources/two.png");
 	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 50%;
     margin: (0, 0, 0);
 }
 .header
@@ -15,14 +13,6 @@ body
 	height: 5vw;
 	max-height: 3.5cm;
 	width: 100%;
-}
-
-
-.choose_filter
-{
-   font-family: monospace;
-   text-decoration-style: wavy;
-   color: black; 
 }
 
 .box1
@@ -298,7 +288,7 @@ input[type=text], input[type=password], input[type=email] {
 	width: 97vw;
 	top: 6.1vw;
     left: 2vw;
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     font-family: 'Courier New', Courier, monospace
 }
 
