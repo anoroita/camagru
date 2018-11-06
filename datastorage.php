@@ -5,15 +5,15 @@
 
 	if ($_SESSION['LOGGED_ON'] && isset($_POST['filter']) && isset($_POST['data']))
 	{
-		if (!file_exists("./pics"))
-			mkdir("./pics");
-		$filter = "./ressources/filters/" . $_POST['filter'] . ".png";
+		if (!file_exists("./captured_pics"))
+			mkdir("./captured_pics");
+		$filter = "./sources/filters/" . $_POST['filter'] . ".png";
 		$img = $_POST['data'];
 
 		$img = str_replace('data:image/png;base64,', '', $img);
 		$img = str_replace(' ', '+', $img);
 		$filedata = base64_decode($img);
-		$filepath = "./pics/";
+		$filepath = "./captured_pics/";
 		$filesql = $_SESSION['ID'] . " " . time() . '.png';
 		$filename = $filepath . $_SESSION['ID'] . " " . time() . '.png';
 		file_put_contents($filename, $filedata);
@@ -28,9 +28,9 @@
 		}
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$req = $conn->prepare('INSERT INTO Photos (username, timet, url, UserID) VALUES (:username, NOW() , :url, :userID)');
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$req = $connection->prepare('INSERT INTO Photos (username, timet, url, UserID) VALUES (:username, NOW() , :url, :userID)');
 			$req->execute(array(
 				':username' => $_SESSION['LOGGED_ON'],
 				':url' => $filesql,

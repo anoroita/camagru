@@ -1,6 +1,6 @@
 body
 {
-	background-image: url("ressources/two.png");
+	background-image: url("sources/two.png");
 	background-size: cover;
     margin: (0, 0, 0);
 }
@@ -31,12 +31,13 @@ body
 	height: 80%;
 }
 
-#Global #gauche {
+#Global #freestyle1 {
     float:left;
 	margin-left: 5%;
     width:55%;
 }
-#Global #droite {
+
+#Global #freestyle2 {
 	display: inline-block;
 	overflow: scroll;
 	display: block;
@@ -56,6 +57,7 @@ body
 {
 	position: absolute;
 	bottom: 0;
+	color: #ccc;
 	background-color: rgb(0, 0, 0);
 	height: 3vw;
 	max-height: 3.5cm;
@@ -242,6 +244,7 @@ input[type=text], input[type=password], input[type=email] {
 		display: table;
 		width: 100%;
 	}}
+
 .cancelbtn,.signupbtn {float:left;width:100%}
 
 

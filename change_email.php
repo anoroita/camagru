@@ -5,9 +5,9 @@
 		header('location:index.php');
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$update = $conn->prepare("SELECT * FROM users WHERE email = :newmail");
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$update = $connection->prepare("SELECT * FROM users WHERE email = :newmail");
 			$update->bindParam(':newmail', $_POST['newmail']);
 			$update->execute();
 		}
@@ -19,9 +19,9 @@
 		{
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$update = $conn->prepare("UPDATE users SET email = :newmail WHERE username = :username");
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$update = $connection->prepare("UPDATE users SET email = :newmail WHERE username = :username");
 			$update->execute(array(
 				':newmail' => $_POST['newmail'],
 				':username' => $_SESSION['LOGGED_ON']
@@ -31,12 +31,12 @@
 		{
 			echo "Couldn't update : " . $e->getMessage();
 		}
-		header('location:user.php');
+		header('location:user_settings.php');
 		}
 		else
 		{
 			echo "Please update email in settings";
-			header( "refresh:2;url=user.php" );
+			header( "refresh:2;url=user_settings.php" );
 		}
  ?>
 
@@ -44,8 +44,8 @@
  <html>
  	<head>
  		<meta charset="utf-8">
- 		<link rel="icon" type="image/png" href="./ressources/icons/favicon.ico" />
- 		<title></title>
+ 		<link rel="icon" type="image/png" href="./sources/icons/camagru.ico" />
+ 		<title>Change-Email</title>
  	</head>
  	<body>
 

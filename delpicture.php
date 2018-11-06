@@ -5,7 +5,7 @@ if (!isset($_SESSION['LOGGED_ON']) || !$_GET)
 	header('location:index.php');
 
 $pic = explode(" ", $_GET['pic']);
-$path = "./pics/";
+$path = "./captured_pics/";
 if ($_SESSION['ID'] === $pic[0])
 {
 	$pic = implode(" ", $pic);
@@ -15,9 +15,9 @@ if ($_SESSION['ID'] === $pic[0])
 
 	try
 	{
-		$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$req = $connection->prepare('DELETE FROM photos WHERE url = :url');
+		$connectionection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+		$connectionection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$req = $connectionection->prepare('DELETE FROM photos WHERE url = :url');
 		$req->execute(array(
 			':url' => $pic
 		));
@@ -32,6 +32,6 @@ if ($_SESSION['ID'] === $pic[0])
 
 else {
 	header( "refresh:2;url=index.php" );
-	echo "FAKOFF";
+	echo "Too bad..";
 }
 ?>

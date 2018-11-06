@@ -3,9 +3,9 @@ header( "refresh:3;url=index.php" );
 ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
 		<meta charset="utf-8">
-		<title></title>
+		<title>Confirmation</title>
 	</head>
 	<body>
 		<div class="header">

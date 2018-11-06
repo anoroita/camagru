@@ -65,7 +65,7 @@
  ?>
  <html>
  	<head>
- 		<link rel="stylesheet" href="styles.css">
+ 		<link rel="stylesheet" href="style.css">
 
  		<meta charset="utf-8">
  		<title></title>
@@ -94,7 +94,7 @@
          {
             echo $_SESSION["message"];
             echo '<label><b> New password</b></label>
-            <form class="modal-content" action="verifypsw.php?email='.$email.'&conflink='.$conflink.'" method="post">
+            <form class="modal-content" action="verify_password.php?email='.$email.'&conflink='.$conflink.'" method="post">
                <div class="container">
 
                 	<input type="password" placeholder="Enter Password" name="password" required>

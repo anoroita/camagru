@@ -46,6 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $subject  = 'Camagru | Reset your password';
                 $message  = '
 
+                Hi, '.$username.'
+
                 This email has been sent automatically by Camagru to your request to recorver your password.
 
                 ------------------------
@@ -53,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 ------------------------
 
                 Please click this link to reset your account password:
-                http://localhost:8592/verifypsw.php?email='.$email.'&conflink='.$conflink.'
+                http://localhost:8592/verify_password.php?email='.$email.'&conflink='.$conflink.'
 
                 ';
                 $headers = 'From:noreply@camagru.com' . "\r\n";
@@ -80,10 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
  ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
 		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="./ressources/icons/favicon.png" />
-		<title></title>
+		<link rel="icon" type="image/png" href="./sources/icons/camagru.ico" />
+		<title>Password-Reset</title>
 	</head>
 	<body>
 		<div class="header">
@@ -96,9 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
  			}
  			else
  			{
-				echo '<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./ressources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./ressources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./ressources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./sources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./sources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./sources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
  			}
  			?>
 		</div>

@@ -49,10 +49,10 @@
  ?>
  <html>
  	<head>
- 		<link rel="stylesheet" href="styles.css">
+ 		<link rel="stylesheet" href="style.css">
 
  		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="./ressources/icons/favicon.png" />
+		<link rel="icon" type="image/png" href="./sources/icons/camagru.ico" />
  		<title></title>
  	</head>
  	<body>

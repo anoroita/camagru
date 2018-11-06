@@ -4,9 +4,9 @@
 ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
 		<meta charset="utf-8">
-		<link rel="icon" type="image/png" src="./ressources/icons/favicon.png" />
+		<link rel="icon" type="image/png" src="./sources/icons/camagru.ico" />
 		<title>Home</title>
 	</head>
 	<body>
@@ -17,15 +17,15 @@
 			//This will check if user is logged on and display relevant home page icons. (depends)
 			if (isset($_SESSION['LOGGED_ON']))
 			{
-				echo '<a href="user.php"><button class="icon" type="button" name="Login"><img src="./ressources/icons/settings.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./ressources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="logout.php"><button class="icon" type="button" name="settings"><img src="./ressources/icons/logout.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="user_settings.php"><button class="icon" type="button" name="Login"><img src="./sources/icons/settings.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./sources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="logout.php"><button class="icon" type="button" name="settings"><img src="./sources/icons/logout.png" style="width:4.5vw;height:4vw;"</img></button></a>';
 			}
 			else
 			{
-				echo '<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./ressources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./ressources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./ressources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./sources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./sources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./sources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
 			}
 			?>
 		</div>
@@ -36,9 +36,9 @@
 		{
 			try
 			{
-				$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$req = $conn->prepare('SELECT url FROM Photos WHERE userID = :id ORDER BY timet DESC');
+				$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+				$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$req = $connection->prepare('SELECT url FROM Photos WHERE userID = :id ORDER BY timet DESC');
 				$req->execute(array(
 				':id' => $_SESSION['ID']
 				));
@@ -50,41 +50,41 @@
 			}
 
 			/* Here, the "Choose file" and "Upload photo" button will be set and displayed, all the Filter images will be loaded 
-			from ressources/filters/ and be displayed and selected using radio type selector. And set the video, canvas
+			from sources/filters/ and be displayed and selected using radio type selector. And set the video, canvas
 			and capture button ready */
 			echo '
 			<div id="global">
-				<div id="gauche">
+				<div id="freestyle1">
 				<form class="uplod" action="upload.php" method="post" enctype="multipart/form-data">
 				Select image to upload:
 				<input type="file" name="fileToUpload" id="fileToUpload" required>
 				<input type="submit" value="Upload Image" name="submit">
 					<div class="filters">
 						<input type="radio" name="filter" value="one" id="one" checked/>
-						<label><img src="./ressources/filters/one.png" alt="missing" class="filtersize" /></label>
+						<label><img src="./sources/filters/one.png" alt="missing" class="filtersize" /></label>
 						<input type="radio" name="filter" value="two" id="two"/>
-						<label><img src="./ressources/filters/two.png" alt="missing" class="filtersize" /></label>
+						<label><img src="./sources/filters/two.png" alt="missing" class="filtersize" /></label>
 						<br>
 						<input type="radio" name="filter" value="three" id="three"/>
-						<label><img src="./ressources/filters/three.png" alt="missing" class="filtersize" /></label>
+						<label><img src="./sources/filters/three.png" alt="missing" class="filtersize" /></label>
 						<input type="radio" name="filter" value="four" id="four"/>
-            <label><img src="./ressources/filters/four.png" alt="missing" class="filtersize" /></label>
+            <label><img src="./sources/filters/four.png" alt="missing" class="filtersize" /></label>
             <br>
 					</div>
 				</form>
 				<video id="video"></video>
-				<button type="submit" class="cambutton" id="startbutton"><img src="./ressources/icons/photo-camera.png" style="width:4vw;height=4vw;"/></button>
+				<button type="submit" class="cambutton" id="startbutton"><img src="./sources/icons/photo-camera.png" style="width:4vw;height=4vw;"/></button>
 				<img id="photo" />
 				<canvas id="canvas" style="display:none;">No video stream...</canvas>
 				</div>
-				<div id="droite">';
+				<div id="freestyle2">';
 
-				//Here all the captured pics will be displayed in gallery, displayed with delete button.
+				//Here all the captured captured_pics will be displayed in gallery, displayed with delete button.
 				foreach ($result as $value)
 				{
 					echo "<div class='del'>
-									<img class='gallery' src='./pics/" . $value['url'] . "'/>
-									<div class='delbutton'><a href='delpicture.php?pic=" . $value['url'] . "'><img src='./ressources/icons/delwhite.png' style='width:3vw;height=3vw;'/></a>
+									<img class='gallery' src='./captured_pics/" . $value['url'] . "'/>
+									<div class='delbutton'><a href='delpicture.php?pic=" . $value['url'] . "'><img src='./sources/icons/delwhite.png' style='width:3vw;height=3vw;'/></a>
 									</div>
 								</div>";
 				}
@@ -183,7 +183,7 @@ and also getMedia functions to activate Webcam */
 			img.src = response;
 			img.setAttribute('class', 'gallery');
 			div.append(img)
-			document.getElementById('droite').append(div);
+			document.getElementById('freestyle2').append(div);
 		}
    }
 	

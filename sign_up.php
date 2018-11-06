@@ -66,6 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     $subject  = 'Signup | Verification';
                                     $message  = '
 
+                                    Hello, '.$username.'
+
                                     Thanks for signing up!
                                     Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
 
@@ -125,17 +127,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
 		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="./ressources/icons/favicon.png" />
-		<title></title>
+		<link rel="icon" type="image/png" href="./sources/icons/camagru.ico" />
+		<title>Registration</title>
 	</head>
 	<body>
 		<div class="header">
 		    <a href="index.php"><button class="title" name="button">CAMAGRU</button><a/>
-			<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./ressources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>
-			<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./ressources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>
-			<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./ressources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>
+			<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./sources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>
+			<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./sources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>
+			<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./sources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>
 		</div>
 		<div class="main">
             <form class="modal-content" action="sign_up.php" method="post">
@@ -160,6 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
 	</div>
 	<div class="footer">
+        camagru by anoroita&copy; 2018
 	</div>
 
 	</body>

@@ -3,7 +3,7 @@ if (!$_POST['filter'])
 {
     header('Location:index.php');
  }
-$target_dir = "pics/";
+$target_dir = "captured_pics/";
 	$filter = $_POST['filter'];
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 	$uploadOk = 1;

@@ -4,10 +4,10 @@ $_SESSION['message'] = '';
 ?>
 <html>
 	<head>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
 		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="./ressources/icons/favicon.png" />
-		<title></title>
+		<link rel="icon" type="image/png" href="./sources/icons/camagru.ico" />
+		<title>Gallery</title>
 	</head>
 	<body onload="setInterval('scroll();', 250);">
 			<div class="header">
@@ -15,15 +15,15 @@ $_SESSION['message'] = '';
  			<?php
  			if (isset($_SESSION['LOGGED_ON']))
  			{
-				echo '<a href="user.php"><button class="icon" type="button" name="settings"><img src="./ressources/icons/settings.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./ressources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="logout.php"><button class="icon" type="button" name="logout"><img src="./ressources/icons/logout.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="user_settings.php"><button class="icon" type="button" name="settings"><img src="./sources/icons/settings.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./sources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="logout.php"><button class="icon" type="button" name="logout"><img src="./sources/icons/logout.png" style="width:4.5vw;height:4vw;"</img></button></a>';
  			}
  			else
  			{
-				echo '<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./ressources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./ressources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
-				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./ressources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="sign_in.php"><button class="icon" type="button" name="Login"><img src="./sources/icons/logins.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="sign_up.php"><button class="icon" type="button" name="Sign up"><img src="./sources/icons/registericon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
+				echo '<a href="gallery.php"><button class="icon" type="button" name="Gallery"><img src="./sources/icons/galleryicon.png" style="width:4.5vw;height:4vw;"</img></button></a>';
  			}
  			?>
  			</div>
@@ -40,8 +40,8 @@ $_SESSION['message'] = '';
 
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$req = $conn->prepare('SELECT COUNT(PhotoID) FROM Photos');
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$req = $connection->prepare('SELECT COUNT(PhotoID) FROM Photos');
 			$req->execute();
 			$total = $req->fetchColumn();
 		}
@@ -52,8 +52,8 @@ $_SESSION['message'] = '';
 
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$req = $conn->prepare('SELECT url, PhotoID FROM Photos ORDER BY timet DESC LIMIT ' . (($page - 1)) * $items .' , ' . $items . '');
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$req = $connection->prepare('SELECT url, PhotoID FROM Photos ORDER BY timet DESC LIMIT ' . (($page - 1)) * $items .' , ' . $items . '');
 			$req->execute();
 			$result = $req->fetchAll();
 		}
@@ -67,20 +67,20 @@ $_SESSION['message'] = '';
 			foreach ($result as $value)
 			{
 				echo "<div id='container'>
-				<img class='gallery' src='./pics/" . $value['url'] . "'/>";
+				<img class='gallery' src='./captured_pics/" . $value['url'] . "'/>";
 				if (isset($_SESSION['LOGGED_ON']))
 				{
 					echo "<div class='likebutton'>
-							<a href='like.php?pic=" . $value['url'] . "'> <img src='./ressources/icons/like.png' style='width:4vw;height=4vw;'/></a>
-							<a href='comment.php?pic=" . $value['url'] . "'><img src='./ressources/icons/comment.png' style='width:4vw;height=4vw;'/></a>
+							<a href='like.php?pic=" . $value['url'] . "'> <img src='./sources/icons/like.png' style='width:4vw;height=4vw;'/></a>
+							<a href='comment.php?pic=" . $value['url'] . "'><img src='./sources/icons/comment.png' style='width:4vw;height=4vw;'/></a>
 							</div>";
 
 					echo "<div class='likencomment'>";
 					try
 					{
-						$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						$req = $conn->prepare("SELECT LikeID FROM likes WHERE photoID = :photoID");
+						$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+						$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						$req = $connection->prepare("SELECT LikeID FROM likes WHERE photoID = :photoID");
 						$req->execute(array(
 							':photoID' => $value['PhotoID']
 						));

@@ -8,9 +8,9 @@
 	{
 		$pic = $_POST['pic'];
 		try{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$req = $conn->prepare("SELECT PhotoID, username FROM photos  where url = :url");
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$req = $connection->prepare("SELECT PhotoID, username FROM photos  where url = :url");
 			$req->execute(array(
 				':url' => $_POST['pic']
 			));
@@ -22,9 +22,9 @@
 		}
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$req = $conn->prepare('SELECT email FROM users  where username = :username');
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$req = $connection->prepare('SELECT email FROM users  where username = :username');
 			$req->execute(array(
 				':username' => $idphoto['username']
 			));
@@ -38,9 +38,9 @@
 			header('location:index.php');
 		try
 		{
-			$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$req = $conn->prepare('INSERT INTO comments (photoID, author, timet, text) VALUES (:photoID, :author , NOW(), :text)');
+			$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$req = $connection->prepare('INSERT INTO comments (photoID, author, timet, text) VALUES (:photoID, :author , NOW(), :text)');
 			$req->execute(array(
 				':photoID' => $idphoto['PhotoID'],
 				':author' => $_SESSION['LOGGED_ON'],

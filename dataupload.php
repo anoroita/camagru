@@ -6,11 +6,11 @@ if (!isset($_SESSION['LOGGED_ON']) || !$_GET)
 
 if ($_SESSION['LOGGED_ON'] && $_GET)
 {
-	if (!file_exists("./pics"))
-		mkdir("./pics");
-	$filter = "./ressources/filters/" . $_GET['filter'] . ".png";
-	$filedata = file_get_contents("./pics/" . $_GET['data']);
-	$filepath = "./pics/";
+	if (!file_exists("./captured_pics"))
+		mkdir("./captured_pics");
+	$filter = "./sources/filters/" . $_GET['filter'] . ".png";
+	$filedata = file_get_contents("./captured_pics/" . $_GET['data']);
+	$filepath = "./captured_pics/";
 	$filesql = $_SESSION['ID'] . " " . time() . '.png';
 	$filename = $filepath . $_SESSION['ID'] . " " . time() . '.png';
 	file_put_contents($filename, $filedata);
@@ -25,9 +25,9 @@ if ($_SESSION['LOGGED_ON'] && $_GET)
 	}
 	try
 	{
-		$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$req = $conn->prepare('INSERT INTO Photos (username, timet, url, UserID) VALUES (:username, NOW() , :url, :userID)');
+		$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$req = $connection->prepare('INSERT INTO Photos (username, timet, url, UserID) VALUES (:username, NOW() , :url, :userID)');
 		$req->execute(array(
 			':username' => $_SESSION['LOGGED_ON'],
 			':url' => $filesql,
@@ -44,14 +44,3 @@ if ($_SESSION['LOGGED_ON'] && $_GET)
 }
 
  ?>
-<!-- <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="./ressources/icons/favicon.png" />
-		<title></title>
-	</head>
-	<body>
-
-	</body>
-</html> -->

@@ -5,9 +5,9 @@
 		header('location:index.php');
 	try
 	{
-		$conn = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$update = $conn->prepare("UPDATE users SET emailcomment = '0' WHERE username = :username");
+		$connection = new PDO("mysql:host=localhost;dbname=db_camagru", "root", "simple");
+		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$update = $connection->prepare("UPDATE users SET emailcomment = '0' WHERE username = :username");
 		$update->execute(array(
 			':username' => $_SESSION['LOGGED_ON']
 		));
@@ -17,6 +17,6 @@
 		echo "Couldn't update : " . $e->getMessage();
 	}
 	$_SESSION['mailcomm'] = 0;
-	header('location:user.php');
+	header('location:user_settings.php');
 
  ?>
