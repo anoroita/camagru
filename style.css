@@ -1,7 +1,7 @@
 body
 {
-	background-image: url("sources/two.png");
 	background-size: cover;
+	background-image: url(sources/two.jpg);
     margin: (0, 0, 0);
 }
 .header
@@ -58,6 +58,7 @@ body
 	position: absolute;
 	bottom: 0;
 	color: #ccc;
+	text-align: center;
 	background-color: rgb(0, 0, 0);
 	height: 3vw;
 	max-height: 3.5cm;
@@ -69,7 +70,8 @@ body
 {
     font-family: monospace;
     text-decoration-style: wavy;
-    color: rgb(248, 248, 248); 
+	color: rgb(248, 248, 248);
+	padding-top: 2px;
 	background-color: rgb(29, 5, 59);
 	border: black;
     margin: auto;
