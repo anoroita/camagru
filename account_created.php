@@ -17,7 +17,7 @@ header( "refresh:3;url=index.php" );
         </div><br>
 
 		<div class="footer">
-
+			camagru by anoroita&copy; 2018
 		</div>
 
 	</body>

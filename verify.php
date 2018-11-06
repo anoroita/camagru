@@ -77,7 +77,8 @@
         </br>Welcome to Camagru, your account has been activated</br></br></br></br>
         You will be redirected to the <a href="index.php"><type="text" class="" name="button">Homepage<a/> in 5 sec ...
         </div></br>
- 		<div class="footer">
- 		</div>
+		<div class="footer">
+			camagru by anoroita&copy; 2018
+		</div>
  	</body>
  </html>

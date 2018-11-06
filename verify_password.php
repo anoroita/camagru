@@ -108,6 +108,7 @@
          ?>
          </div>
  		<div class="footer">
- 		</div>
+			camagru by anoroita&copy; 2018
+		</div>
  	</body>
  </html>

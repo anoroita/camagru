@@ -93,6 +93,7 @@
 		}
 		?>
 		<div class="footer">
+			camagru by anoroita&copy; 2018
 		</div>
 	</body>
 </html>

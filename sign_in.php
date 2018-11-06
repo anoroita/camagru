@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		</form>
 		</div>
 		<div class="footer">
-
+			camagru by anoroita&copy; 2018
 		</div>
 
 	</body>
