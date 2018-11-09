@@ -118,7 +118,7 @@ and also getMedia functions to activate Webcam */
 		context = canvas.getContext('2d'),
 		photo = document.querySelector('#photo'),
 		startbutton = document.querySelector('#startbutton'),
-		filter	= document.querySelector('#blanka'),
+		filter	= document.querySelector('#one'),
 
 		width = (window.innerWidth / 5 ) ;
 		height = window.innerHeight;
@@ -147,7 +147,7 @@ and also getMedia functions to activate Webcam */
     }
   );
 
-	//Listen for canplay event and sets size of the stream.
+	//Listen for canplay event, checks for stream and sets size of the stream.
 
   video.addEventListener('canplay', function(ev){
     if (!streaming) {

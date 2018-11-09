@@ -9,7 +9,7 @@ body
 	display : flex;
 	justify-content: flex-end;
 	flex-direction: row;
-	background-color: rgb(29, 5, 59);
+	background-color: rgb(8, 3, 41);
 	height: 5vw;
 	max-height: 3.5cm;
 	width: 100%;
@@ -72,7 +72,7 @@ body
     text-decoration-style: wavy;
 	color: rgb(248, 248, 248);
 	padding-top: 2px;
-	background-color: rgb(29, 5, 59);
+	background-color: rgb(8, 3, 41);
 	border: black;
     margin: auto;
 	margin-left: -43.5vw;
@@ -196,7 +196,7 @@ body
 }
 
 
-input[type=text], input[type=password], input[type=email] {
+.input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

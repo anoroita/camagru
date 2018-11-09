@@ -23,7 +23,7 @@
 			<div id="freestyle1">
 				<?php
 				echo '<img src="./captured_pics/' . $pic . ' "alt="missing" style="height:24vw;width:34vw;margin-top:3vw;" />';
-				echo '<form id="addcomment" action="add _comment.php" method="post">
+				echo '<form id="addcomment" action="add_comment.php" method="post">
 					<input type="text" placeholder="Your comment here" name="comment" style="width:34vw;" required>
 					<input type="hidden" name="pic" value="' . $pic . '"/>';
 				echo '<br>
